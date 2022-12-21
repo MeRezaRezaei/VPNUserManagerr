@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Status extends Model
+class VPNUser extends Model
 {
     use HasFactory;
 
-    public function VPNUser(){
+    public function Status(){
 
-        return $this->hasMany(VPNUser::class,'statuses_id','id');
+        return $this->belongsTo(Status::class,'statuses_id','id');
     }
 }

@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('statuses', function (Blueprint $table) {
-            $table->bigInteger('id')->primary();
-            $table->string('status');
-            $table->string('sub_status')->nullable();
-            $table->string('temp')->nullable();
+        Schema::create('v_p_n_users', function (Blueprint $table) {
+
+            $table->string('phone')->primary();
+            $table->bigInteger('statuses_id');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('password')->nullable();
+            $table->Integer('days_to_expire')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statuses');
+        Schema::dropIfExists('v_p_n_users');
     }
 };
